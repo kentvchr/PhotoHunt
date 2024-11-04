@@ -14,19 +14,11 @@
 			remoteGlobalIDString = 0050742E2CD8BE7100E9A4A6;
 			remoteInfo = PhotoHunt;
 		};
-		0050744A2CD8BE7300E9A4A6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 005074272CD8BE7100E9A4A6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0050742E2CD8BE7100E9A4A6;
-			remoteInfo = PhotoHunt;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0050742F2CD8BE7100E9A4A6 /* PhotoHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0050743F2CD8BE7300E9A4A6 /* PhotoHuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoHuntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		005074492CD8BE7300E9A4A6 /* PhotoHuntUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoHuntUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +30,6 @@
 		005074422CD8BE7300E9A4A6 /* PhotoHuntTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = PhotoHuntTests;
-			sourceTree = "<group>";
-		};
-		0050744C2CD8BE7300E9A4A6 /* PhotoHuntUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PhotoHuntUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -62,13 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		005074462CD8BE7300E9A4A6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -77,7 +57,6 @@
 			children = (
 				005074312CD8BE7100E9A4A6 /* PhotoHunt */,
 				005074422CD8BE7300E9A4A6 /* PhotoHuntTests */,
-				0050744C2CD8BE7300E9A4A6 /* PhotoHuntUITests */,
 				005074302CD8BE7100E9A4A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +66,6 @@
 			children = (
 				0050742F2CD8BE7100E9A4A6 /* PhotoHunt.app */,
 				0050743F2CD8BE7300E9A4A6 /* PhotoHuntTests.xctest */,
-				005074492CD8BE7300E9A4A6 /* PhotoHuntUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,29 +118,6 @@
 			productReference = 0050743F2CD8BE7300E9A4A6 /* PhotoHuntTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		005074482CD8BE7300E9A4A6 /* PhotoHuntUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 005074592CD8BE7300E9A4A6 /* Build configuration list for PBXNativeTarget "PhotoHuntUITests" */;
-			buildPhases = (
-				005074452CD8BE7300E9A4A6 /* Sources */,
-				005074462CD8BE7300E9A4A6 /* Frameworks */,
-				005074472CD8BE7300E9A4A6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0050744B2CD8BE7300E9A4A6 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				0050744C2CD8BE7300E9A4A6 /* PhotoHuntUITests */,
-			);
-			name = PhotoHuntUITests;
-			packageProductDependencies = (
-			);
-			productName = PhotoHuntUITests;
-			productReference = 005074492CD8BE7300E9A4A6 /* PhotoHuntUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,10 +132,6 @@
 						CreatedOnToolsVersion = 16.1;
 					};
 					0050743E2CD8BE7300E9A4A6 = {
-						CreatedOnToolsVersion = 16.1;
-						TestTargetID = 0050742E2CD8BE7100E9A4A6;
-					};
-					005074482CD8BE7300E9A4A6 = {
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = 0050742E2CD8BE7100E9A4A6;
 					};
@@ -202,7 +153,6 @@
 			targets = (
 				0050742E2CD8BE7100E9A4A6 /* PhotoHunt */,
 				0050743E2CD8BE7300E9A4A6 /* PhotoHuntTests */,
-				005074482CD8BE7300E9A4A6 /* PhotoHuntUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +166,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0050743D2CD8BE7300E9A4A6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		005074472CD8BE7300E9A4A6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,13 +189,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		005074452CD8BE7300E9A4A6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -260,11 +196,6 @@
 			isa = PBXTargetDependency;
 			target = 0050742E2CD8BE7100E9A4A6 /* PhotoHunt */;
 			targetProxy = 005074402CD8BE7300E9A4A6 /* PBXContainerItemProxy */;
-		};
-		0050744B2CD8BE7300E9A4A6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0050742E2CD8BE7100E9A4A6 /* PhotoHunt */;
-			targetProxy = 0050744A2CD8BE7300E9A4A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -460,7 +391,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M8JFQ64CMA;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kent.PhotoHuntTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -479,7 +410,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M8JFQ64CMA;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kent.PhotoHuntTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -487,40 +418,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoHunt.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PhotoHunt";
-			};
-			name = Release;
-		};
-		0050745A2CD8BE7300E9A4A6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M8JFQ64CMA;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kent.PhotoHuntUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PhotoHunt;
-			};
-			name = Debug;
-		};
-		0050745B2CD8BE7300E9A4A6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M8JFQ64CMA;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kent.PhotoHuntUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PhotoHunt;
 			};
 			name = Release;
 		};
@@ -550,15 +447,6 @@
 			buildConfigurations = (
 				005074572CD8BE7300E9A4A6 /* Debug */,
 				005074582CD8BE7300E9A4A6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		005074592CD8BE7300E9A4A6 /* Build configuration list for PBXNativeTarget "PhotoHuntUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0050745A2CD8BE7300E9A4A6 /* Debug */,
-				0050745B2CD8BE7300E9A4A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
