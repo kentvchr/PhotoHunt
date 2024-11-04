@@ -15,6 +15,8 @@ extension HomeScreen {
         public var searchText: String = ""
         public var errorMessage: String?
         
+        public var scrollProgress: CGFloat = 0
+        
         private(set) var photos: [Photo] = []
         private(set) var isLoading = false
         
@@ -32,12 +34,12 @@ extension HomeScreen {
             }
         }
         
-        func onSubmitSearch(for query: String) {
-            if query.isEmpty {
+        func onSubmitSearch() {
+            if searchText.isEmpty {
                 errorMessage = "Please enter a search term."
             } else {
                 Task {
-                    await searchPhotos(query: query)
+                    await searchPhotos(query: searchText)
                 }
             }
         }

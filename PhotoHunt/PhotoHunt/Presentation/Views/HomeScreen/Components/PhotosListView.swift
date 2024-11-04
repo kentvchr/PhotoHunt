@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-
-struct PhotosScrollView: View {
+struct PhotosListView: View {
     @Environment(HomeScreen.ViewModel.self) private var viewModel
     
     private var adaptiveColumns: [GridItem] {
@@ -16,16 +15,13 @@ struct PhotosScrollView: View {
         return [GridItem(.adaptive(minimum: minimumSize), spacing: 4)]
     }
     
-    
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: adaptiveColumns, spacing: 4) {
-                ForEach(viewModel.photos, id: \.id) { photo in
-                    PhotoThumbnailView(photoURL: photo.urls.thumb)
-                }
+        LazyVGrid(columns: adaptiveColumns, spacing: 4) {
+            ForEach(viewModel.photos, id: \.id) { photo in
+                PhotoThumbnailView(photoURL: photo.urls.thumb)
             }
-            .padding(.horizontal, 4)
         }
+        .padding(.horizontal, 4)
     }
 }
 
@@ -39,7 +35,7 @@ struct PhotosScrollViewPreviewContainer: View {
     @State private var viewModel = HomeScreen.ViewModel()
     
     var body: some View {
-        PhotosScrollView()
+        PhotosListView()
             .environment(viewModel)
             .task {
                 await viewModel.fetchRecentPhotos()
