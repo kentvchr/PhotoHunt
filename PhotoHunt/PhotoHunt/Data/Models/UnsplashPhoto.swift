@@ -21,6 +21,15 @@ public struct UnsplashPhoto: Codable, Identifiable {
         private enum CodingKeys: String, CodingKey {
             case raw, full, regular, small, thumb, smallS3 = "small_s3"
         }
+        
+        public init(raw: URL, full: URL, regular: URL, small: URL, thumb: URL, smallS3: URL) {
+            self.raw = raw
+            self.full = full
+            self.regular = regular
+            self.small = small
+            self.thumb = thumb
+            self.smallS3 = smallS3
+        }
     }
 
     public struct Links: Codable {
@@ -31,6 +40,13 @@ public struct UnsplashPhoto: Codable, Identifiable {
         
         private enum CodingKeys: String, CodingKey {
             case own, html, download, downloadLocation = "download_location"
+        }
+        
+        public init(own: URL? = nil, html: URL? = nil, download: URL? = nil, downloadLocation: URL? = nil) {
+            self.own = own
+            self.html = html
+            self.download = download
+            self.downloadLocation = downloadLocation
         }
     }
 
@@ -52,7 +68,7 @@ public struct UnsplashPhoto: Codable, Identifiable {
     public let downloadsCount: Int?
     public let viewsCount: Int?
     public let user: UnsplashUser
-    public let sponsorship: Sponsorship?
+    public let sponsorship: UnsplashSponsorship?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -67,6 +83,28 @@ public struct UnsplashPhoto: Codable, Identifiable {
         case downloadsCount = "downloads"
         case viewsCount = "views"
         case user, sponsorship
+    }
+    
+    public init(id: String, slug: String? = nil, alternativeSlugs: [String : String]? = nil, createdAt: String? = nil, updatedAt: String? = nil, width: Int? = nil, height: Int? = nil, color: Color? = nil, blurHash: String? = nil, description: String? = nil, altDescription: String? = nil, urls: UnsplashPhoto.URLs, links: UnsplashPhoto.Links, likesCount: Int, likedByUser: Bool? = nil, downloadsCount: Int? = nil, viewsCount: Int? = nil, user: UnsplashUser, sponsorship: UnsplashSponsorship? = nil) {
+        self.id = id
+        self.slug = slug
+        self.alternativeSlugs = alternativeSlugs
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.width = width
+        self.height = height
+        self.color = color
+        self.blurHash = blurHash
+        self.description = description
+        self.altDescription = altDescription
+        self.urls = urls
+        self.links = links
+        self.likesCount = likesCount
+        self.likedByUser = likedByUser
+        self.downloadsCount = downloadsCount
+        self.viewsCount = viewsCount
+        self.user = user
+        self.sponsorship = sponsorship
     }
     
     public init(from decoder: Decoder) throws {
@@ -97,7 +135,7 @@ public struct UnsplashPhoto: Codable, Identifiable {
         downloadsCount = try? container.decode(Int.self, forKey: .downloadsCount)
         viewsCount = try? container.decode(Int.self, forKey: .viewsCount)
         user = try container.decode(UnsplashUser.self, forKey: .user)
-        sponsorship = try? container.decode(Sponsorship.self, forKey: .sponsorship)
+        sponsorship = try? container.decode(UnsplashSponsorship.self, forKey: .sponsorship)
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -128,37 +166,4 @@ public struct UnsplashPhoto: Codable, Identifiable {
             try container.encode(user, forKey: .user)
             try container.encodeIfPresent(sponsorship, forKey: .sponsorship)
         }
-}
-
-public struct UnsplashUser: Codable {
-    public let id: String
-    public let username: String
-    public let name: String
-    public let firstName: String?
-    public let lastName: String?
-    public let profileImage: ProfileImage
-    public let instagramUsername: String?
-    public let totalPhotos: Int?
-
-    private enum CodingKeys: String, CodingKey {
-        case id, username, name, firstName = "first_name", lastName = "last_name"
-        case profileImage = "profile_image"
-        case instagramUsername = "instagram_username"
-        case totalPhotos = "total_photos"
-    }
-
-    public struct ProfileImage: Codable {
-        public let small: URL
-        public let medium: URL
-        public let large: URL
-    }
-}
-
-public struct Sponsorship: Codable {
-    public let tagline: String
-    public let sponsor: UnsplashUser
-
-    private enum CodingKeys: String, CodingKey {
-        case tagline, sponsor
-    }
 }
