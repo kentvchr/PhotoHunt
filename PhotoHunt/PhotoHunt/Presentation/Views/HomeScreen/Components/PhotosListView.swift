@@ -22,6 +22,7 @@ struct PhotosListView: View {
             }
         }
         .padding(.horizontal, 4)
+        .padding(.bottom, 64)
     }
 }
 
