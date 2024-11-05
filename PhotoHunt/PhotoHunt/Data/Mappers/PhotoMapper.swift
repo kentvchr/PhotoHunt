@@ -56,7 +56,7 @@ struct PhotoMapper {
         )
     }
     
-    static func mapURLsToDomain(_ urls: UnsplashPhoto.URLs) -> Photo.URLs {
+    static func mapURLsToDomain(_ urls: UnsplashPhotoURLs) -> Photo.URLs {
         return Photo.URLs(
             raw: urls.raw,
             full: urls.full,
@@ -67,7 +67,7 @@ struct PhotoMapper {
         )
     }
     
-    static func mapLinksToDomain(_ links: UnsplashPhoto.Links) -> Photo.Links {
+    static func mapLinksToDomain(_ links: UnsplashPhotoLinks) -> Photo.Links {
         return Photo.Links(
             own: links.own,
             html: links.html,
@@ -77,8 +77,8 @@ struct PhotoMapper {
     }
     
     //MARK:  Helper functions to map nested types
-    static func mapURLsToData(_ urls: Photo.URLs) -> UnsplashPhoto.URLs {
-        return UnsplashPhoto.URLs(
+    static func mapURLsToData(_ urls: Photo.URLs) -> UnsplashPhotoURLs {
+        return UnsplashPhotoURLs(
             raw: urls.raw,
             full: urls.full,
             regular: urls.regular,
@@ -88,8 +88,8 @@ struct PhotoMapper {
         )
     }
     
-    static func mapLinksToData(_ links: Photo.Links) -> UnsplashPhoto.Links {
-        return UnsplashPhoto.Links(
+    static func mapLinksToData(_ links: Photo.Links) -> UnsplashPhotoLinks {
+        return UnsplashPhotoLinks(
             own: links.own,
             html: links.html,
             download: links.download,

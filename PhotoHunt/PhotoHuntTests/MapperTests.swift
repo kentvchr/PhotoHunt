@@ -24,7 +24,7 @@ final class PhotoMapperTests: XCTestCase {
             blurHash: "LSFYGiIUxvM{0K-;Mxog-:IUtRt6",
             description: "A beautiful photo of nature",
             altDescription: "A person sitting on a rock with a camera",
-            urls: UnsplashPhoto.URLs(
+            urls: UnsplashPhotoURLs(
                 raw: URL(string: "https://example.com/raw.jpg")!,
                 full: URL(string: "https://example.com/full.jpg")!,
                 regular: URL(string: "https://example.com/regular.jpg")!,
@@ -32,7 +32,7 @@ final class PhotoMapperTests: XCTestCase {
                 thumb: URL(string: "https://example.com/thumb.jpg")!,
                 smallS3: URL(string: "https://example.com/smallS3.jpg")!
             ),
-            links: UnsplashPhoto.Links(
+            links: UnsplashPhotoLinks(
                 own: URL(string: "https://example.com/own")!,
                 html: URL(string: "https://example.com/html")!,
                 download: URL(string: "https://example.com/download")!,

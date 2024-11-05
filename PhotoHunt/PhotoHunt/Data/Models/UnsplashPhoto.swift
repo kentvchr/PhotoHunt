@@ -9,46 +9,6 @@
 import SwiftUI
 
 public struct UnsplashPhoto: Codable, Identifiable {
-    
-    public struct URLs: Codable {
-        public let raw: URL
-        public let full: URL
-        public let regular: URL
-        public let small: URL
-        public let thumb: URL
-        public let smallS3: URL
-
-        private enum CodingKeys: String, CodingKey {
-            case raw, full, regular, small, thumb, smallS3 = "small_s3"
-        }
-        
-        public init(raw: URL, full: URL, regular: URL, small: URL, thumb: URL, smallS3: URL) {
-            self.raw = raw
-            self.full = full
-            self.regular = regular
-            self.small = small
-            self.thumb = thumb
-            self.smallS3 = smallS3
-        }
-    }
-
-    public struct Links: Codable {
-        public let own: URL?
-        public let html: URL?
-        public let download: URL?
-        public let downloadLocation: URL?
-        
-        private enum CodingKeys: String, CodingKey {
-            case own, html, download, downloadLocation = "download_location"
-        }
-        
-        public init(own: URL? = nil, html: URL? = nil, download: URL? = nil, downloadLocation: URL? = nil) {
-            self.own = own
-            self.html = html
-            self.download = download
-            self.downloadLocation = downloadLocation
-        }
-    }
 
     public let id: String
     public let slug: String?
@@ -61,8 +21,8 @@ public struct UnsplashPhoto: Codable, Identifiable {
     public let blurHash: String?
     public let description: String?
     public let altDescription: String?
-    public let urls: URLs
-    public let links: Links
+    public let urls: UnsplashPhotoURLs
+    public let links: UnsplashPhotoLinks
     public let likesCount: Int
     public let likedByUser: Bool?
     public let downloadsCount: Int?
@@ -85,7 +45,7 @@ public struct UnsplashPhoto: Codable, Identifiable {
         case user, sponsorship
     }
     
-    public init(id: String, slug: String? = nil, alternativeSlugs: [String : String]? = nil, createdAt: String? = nil, updatedAt: String? = nil, width: Int? = nil, height: Int? = nil, color: Color? = nil, blurHash: String? = nil, description: String? = nil, altDescription: String? = nil, urls: UnsplashPhoto.URLs, links: UnsplashPhoto.Links, likesCount: Int, likedByUser: Bool? = nil, downloadsCount: Int? = nil, viewsCount: Int? = nil, user: UnsplashUser, sponsorship: UnsplashSponsorship? = nil) {
+    public init(id: String, slug: String? = nil, alternativeSlugs: [String : String]? = nil, createdAt: String? = nil, updatedAt: String? = nil, width: Int? = nil, height: Int? = nil, color: Color? = nil, blurHash: String? = nil, description: String? = nil, altDescription: String? = nil, urls: UnsplashPhotoURLs, links: UnsplashPhotoLinks, likesCount: Int, likedByUser: Bool? = nil, downloadsCount: Int? = nil, viewsCount: Int? = nil, user: UnsplashUser, sponsorship: UnsplashSponsorship? = nil) {
         self.id = id
         self.slug = slug
         self.alternativeSlugs = alternativeSlugs
@@ -128,8 +88,8 @@ public struct UnsplashPhoto: Codable, Identifiable {
         blurHash = try? container.decode(String.self, forKey: .blurHash)
         description = try? container.decode(String.self, forKey: .description)
         altDescription = try? container.decode(String.self, forKey: .altDescription)
-        urls = try container.decode(URLs.self, forKey: .urls)
-        links = try container.decode(Links.self, forKey: .links)
+        urls = try container.decode(UnsplashPhotoURLs.self, forKey: .urls)
+        links = try container.decode(UnsplashPhotoLinks.self, forKey: .links)
         likesCount = try container.decode(Int.self, forKey: .likesCount)
         likedByUser = try? container.decode(Bool.self, forKey: .likedByUser)
         downloadsCount = try? container.decode(Int.self, forKey: .downloadsCount)
