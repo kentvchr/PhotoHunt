@@ -5,6 +5,11 @@
 //  Created by Quentin Verchère on 05/11/2024.
 //
 
+extension URLCache {
+    
+    static let imageCache = URLCache(memoryCapacity: 512*1000*1000, diskCapacity: 10*1000*1000*1000)
+}
+
 import SwiftUI
 
 struct PhotoDetailsScreen: View {
@@ -56,7 +61,7 @@ struct PhotoDetailsScreen: View {
     
     @ViewBuilder
     private func asyncImageView(photoDetails: PhotoDetails) -> some View {
-        AsyncImage(url: photoDetails.urls.full) { phase in
+        CachedAsyncImage(url: photoDetails.urls.full, urlCache: .imageCache) { phase in
             switch phase {
             case .empty:
                 ProgressView()
