@@ -37,4 +37,12 @@ struct UnsplashAPI {
         request.setValue("Client-ID \(accessKey)", forHTTPHeaderField: "Authorization")
         return request
     }
+    
+    func photoDetails(id: String) -> URLRequest? {
+        guard let url = URL(string: "\(baseURL)photos/\(id)") else { return nil }
+        
+        var request = URLRequest(url: url)
+        request.setValue("Client-ID \(accessKey)", forHTTPHeaderField: "Authorization")
+        return request
+    }
 }

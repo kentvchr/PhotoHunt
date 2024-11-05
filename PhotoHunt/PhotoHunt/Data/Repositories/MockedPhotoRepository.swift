@@ -30,4 +30,13 @@ class MockedPhotoRepository: PhotoRepositoryProtocol {
             return [mockedUnsplashPhoto]
         }
     }
+    
+    func fetchPhotoDetails(photoId: String) async throws -> UnsplashPhotoDetails {
+        if shouldThrowError {
+            throw URLError(.badURL)
+        } else {
+            let mockedUnsplashPhotoDetails = PhotoDetailsMapper.mapToData(PhotoDetails.mocked)
+            return mockedUnsplashPhotoDetails
+        }
+    }
 }

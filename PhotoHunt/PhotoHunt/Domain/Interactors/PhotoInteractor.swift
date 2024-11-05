@@ -34,4 +34,9 @@ class PhotoInteractor {
             PhotoMapper.mapToDomain(unsplashPhoto)
         }
     }
+    
+    func fetchPhoto(id: String) async throws -> PhotoDetails {
+        let result = try await photoRepository.fetchPhotoDetails(photoId: id)
+        return PhotoDetailsMapper.mapToDomain(result)
+    }
 }

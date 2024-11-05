@@ -25,4 +25,12 @@ class RealPhotoRepository: PhotoRepositoryProtocol {
         let searchResult: UnsplashSearchResult = try await networkManager.request(request, responseType: UnsplashSearchResult.self)
         return searchResult.results
     }
+    
+    func fetchPhotoDetails(photoId: String) async throws -> UnsplashPhotoDetails {
+        guard let request = api.photoDetails(id: photoId) else {
+            throw URLError(.badURL)
+        }
+        print(request)
+        return try await networkManager.request(request, responseType: UnsplashPhotoDetails.self)
+    }
 }

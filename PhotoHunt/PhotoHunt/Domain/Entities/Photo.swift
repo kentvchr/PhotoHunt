@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public class Photo: Identifiable {
-    init(id: String, slug: String? = nil, alternativeSlugs: [String : String]? = nil, createdAt: String? = nil, updatedAt: String? = nil, width: Int? = nil, height: Int? = nil, color: Color? = nil, blurHash: String? = nil, description: String? = nil, altDescription: String? = nil, urls: Photo.URLs, links: Photo.Links, likesCount: Int, likedByUser: Bool? = nil, downloadsCount: Int? = nil, viewsCount: Int? = nil, user: User, sponsorship: Sponsorship? = nil) {
+    init(id: String, slug: String? = nil, alternativeSlugs: [String : String]? = nil, createdAt: String? = nil, updatedAt: String? = nil, width: Int? = nil, height: Int? = nil, color: Color? = nil, blurHash: String? = nil, description: String? = nil, altDescription: String? = nil, urls: PhotoURLs, links: PhotoLinks, likesCount: Int, likedByUser: Bool? = nil, downloadsCount: Int? = nil, viewsCount: Int? = nil, user: User, sponsorship: Sponsorship? = nil) {
         self.id = id
         self.slug = slug
         self.alternativeSlugs = alternativeSlugs
@@ -30,38 +30,6 @@ public class Photo: Identifiable {
         self.user = user
         self.sponsorship = sponsorship
     }
-    
-    public class URLs {
-        init(raw: URL, full: URL, regular: URL, small: URL, thumb: URL, smallS3: URL) {
-            self.raw = raw
-            self.full = full
-            self.regular = regular
-            self.small = small
-            self.thumb = thumb
-            self.smallS3 = smallS3
-        }
-        
-        public let raw: URL
-        public let full: URL
-        public let regular: URL
-        public let small: URL
-        public let thumb: URL
-        public let smallS3: URL
-    }
-
-    public class Links {
-        init(own: URL? = nil, html: URL? = nil, download: URL? = nil, downloadLocation: URL? = nil) {
-            self.own = own
-            self.html = html
-            self.download = download
-            self.downloadLocation = downloadLocation
-        }
-        
-        public let own: URL?
-        public let html: URL?
-        public let download: URL?
-        public let downloadLocation: URL?
-    }
 
     public let id: String
     public let slug: String?
@@ -74,8 +42,8 @@ public class Photo: Identifiable {
     public let blurHash: String?
     public let description: String?
     public let altDescription: String?
-    public let urls: URLs
-    public let links: Links
+    public let urls: PhotoURLs
+    public let links: PhotoLinks
     public let likesCount: Int
     public let likedByUser: Bool?
     public let downloadsCount: Int?
@@ -98,7 +66,7 @@ public class Photo: Identifiable {
         blurHash: "LSFYGiIUxvM{0K-;Mxog-:IUtRt6",
         description: nil,
         altDescription: "A person sitting on a rock with a camera",
-        urls: Photo.URLs(
+        urls: PhotoURLs(
             raw: URL(string: "https://images.unsplash.com/photo-1719937206642-ca0cd57198cc?ixid=M3w2NzEzNjZ8MXwxfGFsbHwxfHx8fHx8fHwxNzMwNjczMDY0fA&ixlib=rb-4.0.3")!,
             full: URL(string: "https://images.unsplash.com/photo-1719937206642-ca0cd57198cc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w2NzEzNjZ8MXwxfGFsbHwxfHx8fHx8fHwxNzMwNjczMDY0fA&ixlib=rb-4.0.3&q=85")!,
             regular: URL(string: "https://images.unsplash.com/photo-1719937206642-ca0cd57198cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NzEzNjZ8MXwxfGFsbHwxfHx8fHx8fHwxNzMwNjczMDY0fA&ixlib=rb-4.0.3&q=80&w=1080")!,
@@ -106,7 +74,7 @@ public class Photo: Identifiable {
             thumb: URL(string: "https://images.unsplash.com/photo-1719937206642-ca0cd57198cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NzEzNjZ8MXwxfGFsbHwxfHx8fHx8fHwxNzMwNjczMDY0fA&ixlib=rb-4.0.3&q=80&w=200")!,
             smallS3: URL(string: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/small/photo-1719937206642-ca0cd57198cc")!
         ),
-        links: Photo.Links(
+        links: PhotoLinks(
             own: URL(string: "https://api.unsplash.com/photos/a-person-sitting-on-a-rock-with-a-camera-QpLJ8Kw5S0Q"),
             html: URL(string: "https://unsplash.com/photos/a-person-sitting-on-a-rock-with-a-camera-QpLJ8Kw5S0Q"),
             download: URL(string: "https://unsplash.com/photos/QpLJ8Kw5S0Q/download?ixid=M3w2NzEzNjZ8MXwxfGFsbHwxfHx8fHx8fHwxNzMwNjczMDY0fA"),

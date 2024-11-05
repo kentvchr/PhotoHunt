@@ -18,7 +18,9 @@ struct PhotosListView: View {
     var body: some View {
         LazyVGrid(columns: adaptiveColumns, spacing: 4) {
             ForEach(viewModel.photos, id: \.id) { photo in
-                PhotoThumbnailView(photoURL: photo.urls.thumb)
+                NavigationLink(destination: PhotoDetailsScreen(photo: photo)) {
+                    PhotoThumbnailView(photoURL: photo.urls.thumb)
+                }
             }
         }
         .padding(.horizontal, 4)
